@@ -1,0 +1,15 @@
+# This repository is an application, not an npm package. Keep accidental packs small.
+node_modules/
+dist/
+release/
+agent/
+.claude/
+AGENTS.md
+HANDOFF.md
+MUSE_SPARK_*.md
+skills-lock.json
+*.tsbuildinfo
+.DS_Store
+.env
+.env.*
+.github/

@@ -1,0 +1,38 @@
+import type { AppData } from './types'
+
+export const blankData: AppData = {
+  organization: {
+    id: 'org-local',
+    ownerName: '',
+    legalName: '',
+    tradingName: '',
+    email: '',
+    phone: '',
+    website: '',
+    address: '',
+    taxId: '',
+    currency: 'EUR',
+    locale: 'en-GB',
+    defaultInvoiceLocale: 'en-GB',
+    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/Berlin',
+    paymentTermsDays: 14,
+    invoicePrefix: 'INV-',
+    nextInvoiceNumber: 1,
+    bankInstructions: '',
+    defaultNotes: 'Thank you for your business.',
+    brandColor: '#173f35',
+    defaultTaxRateBps: 1900,
+    taxRates: [
+      { id: 'tax-0', name: 'Zero rated', rateBps: 0 },
+      { id: 'tax-7', name: 'Reduced', rateBps: 700 },
+      { id: 'tax-19', name: 'Standard', rateBps: 1900 },
+    ],
+    reminders: { enabled: true, dueSoonDays: 3, overdueFollowUpDays: 7, includeDueToday: true },
+  },
+  clients: [],
+  products: [],
+  invoices: [],
+  payments: [],
+  audit: [],
+  onboardingComplete: false,
+}

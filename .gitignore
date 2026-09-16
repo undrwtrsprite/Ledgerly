@@ -1,0 +1,24 @@
+# Dependencies and generated output
+node_modules/
+dist/
+release/
+*.tsbuildinfo
+
+# Local configuration and operating-system metadata
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+
+# Private local working context; never publish with application source
+.claude/
+agent/
+AGENTS.md
+HANDOFF.md
+MUSE_SPARK_*.md
+skills-lock.json
+
+# Editor state
+.idea/
+.vscode/
