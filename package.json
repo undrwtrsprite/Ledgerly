@@ -38,7 +38,7 @@
     "typescript": "7.0.2",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "lucide-react": "1.39.0",
+    "lucide-react": "1.45.0",
     "jspdf": "4.2.1"
   },
   "devDependencies": {
