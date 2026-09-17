@@ -1301,14 +1301,19 @@ h1, h2, p {
   font: 700 12px -apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif;
 }
 
-.paper-brand>span {
+.paper-brand>.paper-mark {
   width: 27px;
   height: 27px;
   border-radius: 7px;
   display: grid;
   place-items: center;
-  color: #f0cd68;
+  color: var(--invoice-on-primary, #fff);
   background: var(--invoice-color,var(--green));
+}
+
+.paper-mark svg {
+  width: 21px;
+  height: 21px;
 }
 
 .paper-meta {
@@ -4060,7 +4065,7 @@ strong,  b {
 .doc-asym-side strong { font-size: 13px; }
 .paper-brand-mark-only { font-size: 0; }
 .doc-head-band { background: var(--invoice-color); color: var(--invoice-on-primary, #fff); border-radius: 8px; padding: 16px 18px; margin-bottom: 18px; border-bottom: 0; align-items: center; }
-.doc-head-band .paper-brand span { background: color-mix(in srgb, currentColor 18%, transparent); color: inherit; }
+.doc-head-band .paper-brand .paper-mark { background: color-mix(in srgb, currentColor 18%, transparent); color: inherit; }
 .doc-logo-right.doc-head-split { flex-direction: row-reverse; }
 .doc-logo-center.doc-head-quiet { justify-content: center; gap: 24px; }
 .doc-logo-center .paper-brand { justify-content: center; }

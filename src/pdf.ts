@@ -67,10 +67,12 @@ export async function buildInvoicePdf(invoice: Invoice, client: Client | undefin
     }
     pdf.setFillColor(...primary)
     pdf.roundedRect(x, boxY, size, size, 3, 3, 'F')
-    pdf.setTextColor(...onPrimary)
-    pdf.setFont(headFont, 'bold')
-    pdf.setFontSize(14)
-    pdf.text('L', x + 4.2, boxY + 8.5)
+    pdf.setDrawColor(...onPrimary)
+    pdf.setLineWidth(Math.max(0.7, size / 14))
+    pdf.line(x + size * .28, boxY + size * .2, x + size * .28, boxY + size * .8)
+    pdf.line(x + size * .28, boxY + size * .8, x + size * .8, boxY + size * .8)
+    pdf.line(x + size * .48, boxY + size * .2, x + size * .48, boxY + size * .62)
+    pdf.line(x + size * .48, boxY + size * .62, x + size * .8, boxY + size * .62)
     return size
   }
 

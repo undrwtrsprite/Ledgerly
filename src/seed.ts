@@ -20,7 +20,7 @@ export const blankData: AppData = {
     nextInvoiceNumber: 1,
     bankInstructions: '',
     defaultNotes: 'Thank you for your business.',
-    brandColor: '#173f35',
+    brandColor: '#2c5847',
     defaultTaxRateBps: 1900,
     taxRates: [
       { id: 'tax-0', name: 'Zero rated', rateBps: 0 },

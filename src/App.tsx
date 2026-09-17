@@ -20,6 +20,10 @@ function Button({ children, variant = 'primary', icon, ...props }: React.ButtonH
   return <button className={`button ${variant}`} {...props}>{icon}{children}</button>
 }
 
+function LedgerlyMark() {
+  return <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 5v14h13M11 5v9h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+}
+
 function MoneyField({ amount, currency, onChange, ariaLabel, autoFocus = false }: { amount: number; currency: string; onChange: (minor: number) => void; ariaLabel: string; autoFocus?: boolean }) {
   const formatted = () => (amount / (10 ** currencyDigits(currency))).toFixed(currencyDigits(currency))
   const [draft, setDraft] = useState(formatted)
@@ -125,7 +129,7 @@ function App() {
 
 return <div className={`app-shell${sidebarCollapsed ? ' sidebar-collapsed' : ''}${isNativeMac ? ' native-mac' : ''}`}>
     <aside className={`sidebar ${mobileNav ? 'sidebar-open' : ''}`}>
-      <div className="brand"><div className="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 5v14h13M11 5v9h8" stroke="currentColor" strokeWidth="2" /></svg></div><span className="sidebar-label">Ledgerly</span><button className="mobile-close" onClick={() => setMobileNav(false)} aria-label="Close navigation"><PanelLeftClose size={20} /></button></div>
+      <div className="brand"><div className="brand-mark"><LedgerlyMark /></div><span className="sidebar-label">Ledgerly</span><button className="mobile-close" onClick={() => setMobileNav(false)} aria-label="Close navigation"><PanelLeftClose size={20} /></button></div>
       <button className="org-switch" onClick={() => go('settings')}><div className="avatar">{organizationInitials}</div><div><strong>{organizationName}</strong><span>Private workspace</span></div><Settings size={15} /></button>
       <div className="sidebar-create"><Button icon={<Plus size={17} />} onClick={openNew}><span className="sidebar-label">New invoice</span></Button></div>
       <nav aria-label="Main navigation">
@@ -387,11 +391,11 @@ interface DocModel {
 }
 
 function DocLogo({ model }: { model: DocModel }) {
-  return <div className="paper-brand">{model.logoDataUrl ? <img src={model.logoDataUrl} alt="" style={{ width: model.logoSize, height: 'auto' }} /> : <span aria-hidden="true">L</span>}{model.businessName}</div>
+  return <div className="paper-brand">{model.logoDataUrl ? <img src={model.logoDataUrl} alt="" style={{ width: model.logoSize, height: 'auto' }} /> : <span className="paper-mark"><LedgerlyMark /></span>}{model.businessName}</div>
 }
 
 function DocMark({ model }: { model: DocModel }) {
-  return <div className="paper-brand paper-brand-mark-only">{model.logoDataUrl ? <img src={model.logoDataUrl} alt="" style={{ width: model.logoSize, height: 'auto' }} /> : <span aria-hidden="true">L</span>}</div>
+  return <div className="paper-brand paper-brand-mark-only">{model.logoDataUrl ? <img src={model.logoDataUrl} alt="" style={{ width: model.logoSize, height: 'auto' }} /> : <span className="paper-mark"><LedgerlyMark /></span>}</div>
 }
 
 function DocHeader({ model, invoice }: { model: DocModel; invoice: Invoice }) {
@@ -670,7 +674,7 @@ function SettingsPage({ notify }: { notify: (m: string) => void }) {
     { id: 'updates' as const, label: 'Updates', icon: <Download /> },
     { id: 'changes' as const, label: "What's new", icon: <FileText /> },
   ]
-  const save = () => { if (!/^#[0-9a-f]{6}$/i.test(brandDraft)) { notify('Enter a six-digit brand colour such as #173f35.'); return } const next = { ...org, brandColor: brandDraft }; setOrg(next); saveOrganization(next); notify('Settings saved.') }
+  const save = () => { if (!/^#[0-9a-f]{6}$/i.test(brandDraft)) { notify('Enter a six-digit brand colour such as #2c5847.'); return } const next = { ...org, brandColor: brandDraft }; setOrg(next); saveOrganization(next); notify('Settings saved.') }
   return <div className="page settings-page">
     <div className="page-heading"><div><h1>Settings</h1><p>Manage your business identity, defaults, and local data.</p></div><Button icon={<Check size={17} />} onClick={save}>Save changes</Button></div>
     <div className="settings-layout">
