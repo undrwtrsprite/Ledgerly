@@ -17,8 +17,10 @@
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/invoice-editor.svg" alt="Ledgerly's invoice editor, showing invoice details, line items, and a live preview" width="100%">
+  <img src="docs/screenshots/invoice-editor.jpg" alt="Ledgerly's invoice editor, showing invoice appearance controls and a live invoice preview" width="100%">
 </p>
+
+<p align="center"><em>Invoice appearance controls and live preview, shown with fictional sample data.</em></p>
 
 ## Built for clear, local bookkeeping
 
